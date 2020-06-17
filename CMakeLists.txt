@@ -314,18 +314,33 @@ option(EXAMPLES "Compile examples" ON)
 if(EXAMPLES)
     add_executable(example_tt_fullyleptonic "examples/tt_fullyleptonic.cc")
     target_link_libraries(example_tt_fullyleptonic momemta)
-    set_target_properties(example_tt_fullyleptonic PROPERTIES OUTPUT_NAME
-      "tt_fullyleptonic.exe")
+    set_target_properties(example_tt_fullyleptonic PROPERTIES OUTPUT_NAME "tt_fullyleptonic.exe")
 
     add_executable(example_tt_fullyleptonic_NWA "examples/tt_fullyleptonic_NWA.cc")
     target_link_libraries(example_tt_fullyleptonic_NWA momemta)
-    set_target_properties(example_tt_fullyleptonic_NWA PROPERTIES OUTPUT_NAME
-      "tt_fullyleptonic_NWA.exe")
+    set_target_properties(example_tt_fullyleptonic_NWA PROPERTIES OUTPUT_NAME "tt_fullyleptonic_NWA.exe")
 
     add_executable(example_WW_fullyleptonic "examples/WW_fullyleptonic.cc")
     target_link_libraries(example_WW_fullyleptonic momemta)
-    set_target_properties(example_WW_fullyleptonic PROPERTIES OUTPUT_NAME
-      "WW_fullyleptonic.exe")
+    set_target_properties(example_WW_fullyleptonic PROPERTIES OUTPUT_NAME "WW_fullyleptonic.exe")
+    
+    # could probably remove all this ttbar stuff since I compile it calling gcc directly
+    add_executable(example_ttbar "examples/ttbar.cc")
+    target_include_directories(example_ttbar PUBLIC "/usr/include/hdf5/serial")
+    target_link_libraries(example_ttbar momemta )
+    
+    target_link_libraries(example_ttbar "/usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5_hl_cpp.a")
+    target_link_libraries(example_ttbar "/usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5_cpp.a")
+    target_link_libraries(example_ttbar "/usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5_hl.a") 
+    target_link_libraries(example_ttbar "/usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5.a")
+    target_link_libraries(example_ttbar pthread)
+    target_link_libraries(example_ttbar sz) 
+    target_link_libraries(example_ttbar z)
+    target_link_libraries(example_ttbar dl) 
+    target_link_libraries(example_ttbar m) 
+    
+    set_target_properties(example_ttbar PROPERTIES OUTPUT_NAME "ttbar.exe")
+    
 
 endif()
 

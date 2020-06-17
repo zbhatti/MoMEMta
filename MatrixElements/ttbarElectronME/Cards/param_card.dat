@@ -38,7 +38,7 @@ Block mass
 ###################################
 ## INFORMATION FOR SMINPUTS
 ###################################
-Block sminputs
+Block sminputs 
     1 1.325070e+02 # aEWM1 
     2 1.166390e-05 # Gf 
     3 1.180000e-01 # aS 
@@ -58,7 +58,6 @@ DECAY   6 1.491500e+00 # WT
 DECAY  23 2.441404e+00 # WZ 
 DECAY  24 2.047600e+00 # WW 
 DECAY  25 6.382339e-03 # WH 
-
 ## Dependent parameters, given by model restrictions.
 ## Those values should be edited following the 
 ## analytical expression. MG5 ignores those values 

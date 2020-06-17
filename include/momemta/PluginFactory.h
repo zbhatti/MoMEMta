@@ -68,6 +68,11 @@ class PluginFactory<Interface* (Args...)> {
         PMakerBase* find(const std::string& name) const {
             auto it = m_plugins.find(name);
             if (it == m_plugins.end()) {
+                LOG(fatal) << "REGISTERED PLUGINS: ";
+                for (const auto& plugin: m_plugins) {
+                    LOG(fatal) << plugin.first;
+                }
+                
                 LOG(fatal) << "No such plugin type '" << name << "' registered in the factory (" << m_plugins.size() <<" plugins).";
                 throw plugin_not_found_error("No such plugin type '" + name + "' registered in the factory.");
             }
